@@ -20,6 +20,19 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		echo 'singgih';
+	}
+	public function namapemilik()
+	{
+		$this->load->model('user');
+
+		$user = array('nama' => 'jason','alamat'=> 'volta' );
+
+		$fname = $this->user->get_all_user_fname();
+
+		$this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode($fname));
+
 	}
 }
